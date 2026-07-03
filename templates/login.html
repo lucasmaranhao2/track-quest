@@ -8,9 +8,18 @@ Login
 <a href="{% url 'home:index' %}">Home</a>
 <h1>This is the login page</h1>
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <form action="" method="post">
     {% csrf_token %}
-
+    {{form}}
+    <input type="submit" value="Login">
 </form>
 
 <h2>Don't have an account? <a href="{% url 'user:register' %}">Sign in.</a></h2>

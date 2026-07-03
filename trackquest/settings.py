@@ -41,6 +41,12 @@ INSTALLED_APPS = [
     'user',
 ]
 
+# custom user model
+AUTH_USER_MODEL = 'user.RegisterModel'
+
+# login decorator path
+LOGIN_URL = 'user:login'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
